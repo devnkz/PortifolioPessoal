@@ -59,8 +59,8 @@ export function CardProjetos({ NomeProjeto, urlImage, altImage, DescricaoProjeto
                 </div>
             </div>
             <div className='flex gap-6'>
-                <Button textButton='Ver deploy' />
-                <Button textButton='Código' />
+                <Button textButton='Ver deploy' redirecionamento="/" />
+                <Button textButton='Código' redirecionamento="/" />
             </div>
         </div>
     )
