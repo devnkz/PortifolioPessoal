@@ -87,7 +87,7 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <Button textButton='Baixar curriculo' redirecionamento='/curriculo.pdf' />
+                            <Button textButton='Baixar curriculo' redirecionamento='/Curriculo.pdf' />
                         </div>
 
                         <div id='projetos' className='flex flex-col gap-8 px-8'>
