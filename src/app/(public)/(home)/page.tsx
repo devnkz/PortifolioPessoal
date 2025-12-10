@@ -2,11 +2,16 @@ import { IBM_Plex_Mono, Raleway } from "next/font/google";
 import { VscGithub } from "react-icons/vsc";
 import { FaLinkedin } from "react-icons/fa6";
 import Image from "next/image";
-
+import { RiNextjsFill, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
+import { SiTypescript } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { FaNodeJs } from "react-icons/fa";
+import { SiSocketdotio, SiPrisma, SiPostgresql } from "react-icons/si";
 import { Button } from "./componets/button";
 import { CardTecnologia } from "./componets/cardTecnologia";
 import { CardProjetos } from "./componets/cardProjetos";
 import { ButtonVoltar } from "./componets/buttonVoltar";
+import { DiJavascript, DiReact } from "react-icons/di";
 
 const ibm = IBM_Plex_Mono({ subsets: ["latin"], weight: "400" });
 const raleway = Raleway({ subsets: ["latin"], weight: "700" });
@@ -15,9 +20,9 @@ export default function Home() {
   return (
     <div className="bg-zinc-950 w-full flex flex-col justify-center items-center">
       <header
-        className={`${ibm.className} w-4/5 xl:max-w-[1600px] h-fit p-4 bg-zinc-800 rounded-b-xl flex justify-center items-center`}
+        className={`${ibm.className} w-4/5 xl:max-w-[1600px] h-fit p-4 bg-zinc-800 rounded-b-xl flex justify-center items-center z-50`}
       >
-        <nav className="w-full flex justify-evenly items-center p-4">
+        <nav className="hidden lg:w-full lg:flex justify-evenly items-center p-4">
           <h1 className="text-zinc-300 font-bold">DEV NYCKZ</h1>
           <ul className="flex space-x-8 text-lg text-zinc-400">
             <li className="hover:text-white transition-all duration-300 cursor-pointer">
@@ -61,9 +66,9 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="p-4 my-24 w-full lg:max-w-[1200px]">
-        <section id="home" className="flex justify-between items-center">
-          <div className={`${raleway.className} space-y-6 w-2/4`}>
+      <main className="p-4 my-24 w-full lg:max-w-[1200px] z-50">
+        <section id="home" className="lg:flex justify-between items-center">
+          <div className={`${raleway.className} space-y-6 lg:w-2/4`}>
             <div>
               <h1 className="text-white text-6xl">Nyckolas Vieira</h1>
               <h2 className="text-zinc-400 text-3xl">FRONT-END DEVELOPER</h2>
@@ -92,9 +97,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center h-[400px] w-[400px]">
+          <div className="flex justify-center items-center mt-14 lg:mt-0 h-[400px] w-[400px]">
             <Image
-              src={"/img_perfil.jpg"}
+              src={"/perfil.jpg"}
               alt="foto pessoal"
               height={400}
               width={400}
@@ -108,7 +113,7 @@ export default function Home() {
           id="sobre"
           className={`${raleway.className} flex justify-between mt-24`}
         >
-          <div className="border-r-2 border-zinc-600 sticky top-14 h-fit space-y-4 pr-8">
+          <div className="hidden lg:block border-r-2 border-zinc-600 sticky top-14 h-fit space-y-4 pr-8">
             <h1 className="text-white text-xl text-center">
               Conhecimentos Técnicos
             </h1>
@@ -141,9 +146,13 @@ export default function Home() {
                 textButton="APIs REST"
                 hoverButton="hover:bg-orange-500"
               />
+              <CardTecnologia
+                textButton="NODE JS"
+                hoverButton="hover:bg-green-700"
+              />
             </div>
           </div>
-          <div className="flex flex-col gap-8 w-3/4">
+          <div className="w-full flex flex-col gap-8 lg:w-3/4">
             <div className="flex flex-col gap-8 border-b-2 border-zinc-600 py-8 px-4">
               <h1 className="text-4xl text-white">Sobre mim</h1>
               <div
@@ -173,18 +182,123 @@ export default function Home() {
             <div id="projetos" className="flex flex-col gap-8 px-4">
               <h1 className="text-4xl text-white">Projetos</h1>
               <CardProjetos
+                tecnologias={[
+                  { nome: "Next.js", icon: RiNextjsFill, cor: "bg-zinc-800" },
+                  {
+                    nome: "TypeScript",
+                    icon: SiTypescript,
+                    cor: "bg-blue-800",
+                  },
+                  {
+                    nome: "TailwindCSS",
+                    icon: RiTailwindCssFill,
+                    cor: "bg-blue-950",
+                  },
+                  { nome: "API REST", icon: TbApi, cor: "bg-orange-600" },
+                ]}
                 NomeProjeto="Estudare Sistema"
-                urlImage="/estudare_print.jpg"
+                urlImage="/estudare_print.png"
                 altImage="Print do projeto Estudare Sistema"
                 DescricaoProjeto="Este sistema foi desenvolvido como projeto de conclusão de curso (TCC). O objetivo era criar uma plataforma complementar de ensino, onde alunos podem criar grupos, interagir, tirar dúvidas e desenvolver projetos extracurriculares."
+                deploy="https://etecestudare.top"
+                codigo="https://github.com/devnkz/tcc_estudare"
               />
+
               <CardProjetos
-                NomeProjeto="Delivery-Now"
-                urlImage="/Delivery-now_print.jpg"
-                altImage="Print do projeto Delivery-Now"
-                DescricaoProjeto="Aplicação desenvolvida para facilitar pedidos de delivery, proporcionando uma experiência rápida e intuitiva tanto para clientes quanto para estabelecimentos."
+                tecnologias={[
+                  { nome: "Node.js", icon: FaNodeJs, cor: "bg-green-700" },
+                  {
+                    nome: "TypeScript",
+                    icon: SiTypescript,
+                    cor: "bg-blue-800",
+                  },
+                  {
+                    nome: "Socket.io",
+                    icon: SiSocketdotio,
+                    cor: "bg-zinc-700",
+                  },
+                  {
+                    nome: "Prisma ORM",
+                    icon: SiPrisma,
+                    cor: "bg-green-700",
+                  },
+                  {
+                    nome: "PostgreSQL",
+                    icon: SiPostgresql,
+                    cor: "bg-blue-300",
+                  },
+                ]}
+                NomeProjeto="Estudare Backend"
+                urlImage="/1.png"
+                altImage="Print do backend Estudare Sistema"
+                DescricaoProjeto="API completa que sustenta o sistema Estudare. Estruturada com Node.js e TypeScript, utiliza WebSockets via Socket.io para comunicação em tempo real no chat, Prisma ORM para modelagem de dados e PostgreSQL como banco principal."
+                codigo="https://github.com/devnkz/Backend_tcc"
+              />
+
+              <CardProjetos
+                tecnologias={[
+                  { nome: "Next.js", icon: RiNextjsFill, cor: "bg-zinc-800" },
+                  {
+                    nome: "TypeScript",
+                    icon: SiTypescript,
+                    cor: "bg-blue-800",
+                  },
+                  {
+                    nome: "TailwindCSS",
+                    icon: RiTailwindCssFill,
+                    cor: "bg-blue-950",
+                  },
+                ]}
+                NomeProjeto="URBAN BURGUER"
+                urlImage="/urbanBurguer.png"
+                altImage="Print do website urban burguer"
+                DescricaoProjeto="Um website responsivo desenvolvido para exercitar meus novos conhecimentos de ui/ux."
+                deploy="https://urban-burguer-wheat.vercel.app"
+                codigo="https://github.com/devnkz/urbanBurguer"
               />
             </div>
+          </div>
+        </section>
+
+        <section className="px-4 my-14 lg:hidden">
+          <h1 className={`${ibm.className} text-white text-4xl font-bold`}>
+            MINHA <span className="text-blue-600">STACK</span> DE TRABALHO
+          </h1>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-yellow-400 text-black px-4 py-2 my-6 rounded-xl`}
+          >
+            <DiJavascript />
+            JAVASCRIPT
+          </div>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-2 my-6 rounded-xl`}
+          >
+            <SiTypescript />
+            TYPESCRIPT
+          </div>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-zinc-800 text-white px-4 py-2 my-6 rounded-xl`}
+          >
+            <RiNextjsLine />
+            NEXT.JS
+          </div>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 my-6 rounded-xl`}
+          >
+            <FaNodeJs />
+            NODE.JS
+          </div>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-blue-300 text-black px-4 py-2 my-6 rounded-xl`}
+          >
+            <SiPostgresql />
+            POSTGREESQL
+          </div>
+          <div
+            className={`${ibm.className} flex items-center justify-center gap-2 bg-blue-900 text-white px-4 py-2 my-6 rounded-xl`}
+          >
+            <DiReact />
+            REACT-NATIVE
           </div>
         </section>
 
