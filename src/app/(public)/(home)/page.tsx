@@ -3,7 +3,7 @@ import { VscGithub } from "react-icons/vsc";
 import { FaLinkedin } from "react-icons/fa6";
 import Image from "next/image";
 import { RiNextjsFill, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
-import { SiTypescript } from "react-icons/si";
+import { SiFastify, SiTypescript } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { FaNodeJs } from "react-icons/fa";
 import { SiSocketdotio, SiPrisma, SiPostgresql } from "react-icons/si";
@@ -207,6 +207,7 @@ export default function Home() {
               <CardProjetos
                 tecnologias={[
                   { nome: "Node.js", icon: FaNodeJs, cor: "bg-green-700" },
+                  { nome: "Fastify", icon: SiFastify, cor: "bg-zinc-700" },
                   {
                     nome: "TypeScript",
                     icon: SiTypescript,
